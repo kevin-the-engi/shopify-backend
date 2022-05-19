@@ -1,6 +1,6 @@
 const db = require('../db')
 
-const createItem = (req, res) => {
+const createItem = (req, res, next) => {
   const { name } = req.body;
   const query = `INSERT INTO inventory(name) VALUES('${name}');`;
 
@@ -8,12 +8,12 @@ const createItem = (req, res) => {
     if (err) {
       res.sendStatus(409);
     } else {
-      res.sendStatus(201);
+      listItems(req, res, next, 201)
     }
   })
 }
 
-const updateItem = (req, res) => {
+const updateItem = (req, res, next) => {
   const { id, name } = req.body;
   const query = `
     UPDATE inventory
@@ -25,23 +25,32 @@ const updateItem = (req, res) => {
     if (err) {
       res.sendStatus(400);
     } else {
-      res.sendStatus(204);
+      listItems(req, res, next, 201);
     }
   })
 }
 
 const deleteItem = (req, res) => {
   const { id } = req.body;
+  const query = `DELETE FROM inventory WHERE id=${id};`
+
+  db.query(query, (err) => {
+    if (err) {
+      res.sendStatus(404);
+    } else {
+      listItems(req, res);
+    }
+  })
 }
 
-const listItems = (req, res) => {
+const listItems = (req, res, next, code = 200) => {
   const query = `SELECT * FROM inventory ORDER BY id;`;
 
   db.query(query, (err, { rows }) => {
     if (err) {
-      res.send(404);
+      res.sendStatus(404);
     } else {
-      res.status(200).send(rows);
+      res.status(code).send(rows);
     }
   })
 }

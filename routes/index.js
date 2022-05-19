@@ -4,11 +4,11 @@ const router = express.Router()
 
 router.get('/list', controllers.listItems);
 
-router.post('/createItem', controllers.createItem);
+router.post('/create-item', controllers.createItem);
 
-router.put('/editItem', controllers.updateItem);
+router.put('/edit-item', controllers.updateItem);
 
-router.delete('/deleteItem', controllers.deleteItem);
+router.delete('/delete-item', controllers.deleteItem);
 
 module.exports = {
   router

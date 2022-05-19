@@ -12,9 +12,9 @@ function App() {
   }, []);
   
   const getData = () => {
-    axios.get('/api')
+    axios.get('/list')
       .then((res) => res.data)
-      .then((data) => setData(data.message));
+      .then((data) => setData(data.message))
   }
 
   return (

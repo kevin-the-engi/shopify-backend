@@ -21,7 +21,11 @@
   "homepage": "https://github.com/kevin-the-engi/create-react-app-backend#readme",
   "devDependencies": {
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "pg": "^8.7.3"
   }
 }

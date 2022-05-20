@@ -37,7 +37,7 @@ const FormComponent = ({ handleClose, type, getName, id }) => {
           Close
         </Button>
         <Button variant="primary" type="Submit" onClick={handleSubmit}>
-          {type}
+          {type === "Edit" ? "Edit" : "Create"}
         </Button>
       </Modal.Footer>
     </>

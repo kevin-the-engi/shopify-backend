@@ -16,38 +16,34 @@ function App() {
   
   const getData = () => {
     axios.get('/list')
-      .then((res) => res.data)
-      .then((data) => setData(data));
+      .then((res) => setData(res.data));
   }
 
   const postItem = (item) => {
     axios.post('/create-item', { name: item })
-      .then((res) => res.data)
-      .then((data) => setData(data));
+      .then((res) => setData(res.data));
   }
 
   const editItem = (item, id) => {
     axios.put('/edit-item', { id, name: item })
-      .then((res) => res.data)
-      .then((data) => setData(data));
+      .then((res) => setData(res.data));
   }
 
   const deleteItem = (id) => {
     axios.delete('/delete-item', { 
       data: { id } 
     })
-      .then((res) => res.data)
-      .then((data) => setData(data));  
+      .then((res) => setData(res.data));
   }
 
   const getWarehouses = () => {
     axios.get('/warehouses')
-      .then((res) => res.data)
-      .then((data) => setWarehouses(data));
+      .then((res) => setWarehouses(res.data));
   }
 
   const postWarehouse = (name) => {
-    console.log(name)
+    axios.post('create-warehouse', { name })
+      .then((res) => setWarehouses(res.data));
   }
 
   return (

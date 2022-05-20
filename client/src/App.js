@@ -24,8 +24,10 @@ function App() {
       .then((data) => setData(data));
   }
 
-  const editItem = (id, item) => {
-
+  const editItem = (item, id) => {
+    axios.put('/edit-item', { id, name: item })
+      .then((res) => res.data)
+      .then((data) => setData(data));
   }
 
   const deleteItem = (id) => {
@@ -43,12 +45,12 @@ function App() {
       </header>
 
       <div className="menu">
-        <ItemButton type="Create" postItem={postItem} />
+        <ItemButton type="Create" getItem={postItem} />
       </div>
 
       <ListInventory 
         inventory={data} 
-        editItem={editItem} 
+        getItem={editItem} 
         deleteItem={deleteItem} 
       />
     </div>

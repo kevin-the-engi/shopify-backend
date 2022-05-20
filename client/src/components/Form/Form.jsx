@@ -1,7 +1,7 @@
 import { Button, Modal, Form } from 'react-bootstrap';
 import { useState } from 'react';
 
-const FormComponent = ({ handleClose, type, postItem }) => {
+const FormComponent = ({ handleClose, type, getItem, id }) => {
   const [item, setItem] = useState('');
 
   const handleChange = (e) => {
@@ -12,7 +12,7 @@ const FormComponent = ({ handleClose, type, postItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setItem('');
-    postItem(item);
+    getItem(item, id);
     handleClose();
   }
 

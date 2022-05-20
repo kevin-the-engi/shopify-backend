@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-import ItemButton from './components/ItemButton/ItemButton.jsx';
+import CreateButton from './components/CreateButton/CreateButton.jsx';
 import ListInventory from './components/ListInventory/ListInventory.jsx';
 
 function App() {
   const [data, setData] = useState([]);
+  const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
     getData();
+    getWarehouses();
   }, []);
   
   const getData = () => {
@@ -38,6 +40,16 @@ function App() {
       .then((data) => setData(data));  
   }
 
+  const getWarehouses = () => {
+    axios.get('/warehouses')
+      .then((res) => res.data)
+      .then((data) => setWarehouses(data));
+  }
+
+  const postWarehouse = (name) => {
+    console.log(name)
+  }
+
   return (
     <div className="App">
       <header 
@@ -45,7 +57,8 @@ function App() {
       </header>
 
       <div className="menu">
-        <ItemButton type="Create" getItem={postItem} />
+        <CreateButton type="Create" desc="Create item" getName={postItem} />
+        <CreateButton type="Location" desc="Create location" getName={postWarehouse} />
       </div>
 
       <ListInventory 

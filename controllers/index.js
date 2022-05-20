@@ -54,12 +54,29 @@ const listItems = (req, res, next, code = 200) => {
   })
 }
 
-const createWarehouse = (req, res) => {
+const createWarehouse = (req, res, next) => {
+  const { name } = req.body;
+  const query = `INSERT INTO warehouses(name) VALUES('${name}');`
 
+  db.query(query, (err) => {
+    if (err) {
+      res.sendStatus(409);
+    } else {
+      listWarehouses(req, res, next, 201); 
+    }
+  })
 }
 
-const listWarehouses = (req, res) => {
+const listWarehouses = (req, res, next, code = 200) => {
   const query = `SELECT * FROM warehouses ORDER BY id;`;
+
+  db.query(query, (err, { rows }) => {
+    if (err) {
+      res.sendStatus(404);
+    } else {
+      res.status(code).send(rows);
+    }
+  })
 }
 
 module.exports = {
@@ -68,5 +85,5 @@ module.exports = {
   deleteItem,
   listItems,
   createWarehouse,
-  listWarehouses
+  listWarehouses,
 }

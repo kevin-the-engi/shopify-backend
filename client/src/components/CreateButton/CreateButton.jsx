@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import Form from '../Form/Form.jsx';
 
-const ItemButton = ({ type, ...other }) => {
+const CreateButton = ({ type, desc, ...other }) => {
   const [show, toggleShow] = useState(false);
 
   const handleShow = (e) => {
@@ -22,7 +22,7 @@ const ItemButton = ({ type, ...other }) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{type} item</Modal.Title>
+          <Modal.Title>{desc}</Modal.Title>
         </Modal.Header>
 
         <Form 
@@ -35,4 +35,4 @@ const ItemButton = ({ type, ...other }) => {
   );
 }
 
-export default ItemButton;
+export default CreateButton;

@@ -1,16 +1,17 @@
 import DeleteButton from '../DeleteButton/DeleteButton.jsx';
-import ItemButton from '../ItemButton/ItemButton.jsx';
+import CreateButton from '../CreateButton/CreateButton.jsx';
 
-const ListInventoryItems = ({ id, name, getItem, deleteItem }) => {
+const ListInventoryItems = ({ id, name, getName, deleteItem }) => {
   return(
     <tr className="item">
       <td>{id}</td>
       <td>{name}</td>
       <td>
-        <ItemButton 
+        <CreateButton 
           type="Edit" 
+          desc="Edit item"
           id={id}
-          getItem={getItem} 
+          getName={getName} 
         />  
       </td>  
       <td>

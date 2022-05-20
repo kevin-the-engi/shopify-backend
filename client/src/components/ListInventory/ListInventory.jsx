@@ -1,8 +1,10 @@
+import Table from 'react-bootstrap/Table';
+
 import ListInventoryItems from '../ListInventoryItems/ListInventoryItems.jsx';
 
 const ListInventory = ({ inventory, ...other }) => {
   return(
-    <table className="inventory">
+    <Table striped bordered hover className="inventory">
       <tbody>
         {inventory.map(({ id, name }) => 
           <ListInventoryItems 
@@ -13,7 +15,7 @@ const ListInventory = ({ inventory, ...other }) => {
           />
         )}
       </tbody>
-    </table>
+    </Table>
   );
 }
 

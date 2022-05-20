@@ -2,11 +2,12 @@ import DeleteButton from '../DeleteButton/DeleteButton.jsx';
 import CreateButton from '../CreateButton/CreateButton.jsx';
 import ListWarehouse from '../ListWarehouse/ListWarehouse.jsx';
 
-const ListInventoryItems = ({ id, name, getName, deleteItem, warehouses }) => {
+const ListInventoryItems = ({ id, name, warehouse_id, getName, deleteItem, warehouses }) => {
   return(
     <tr className="item">
       <td>{id}</td>
       <td>{name}</td>
+      <td>{warehouse_id}</td>
       <td>
         <CreateButton 
           type="Edit" 
@@ -16,7 +17,7 @@ const ListInventoryItems = ({ id, name, getName, deleteItem, warehouses }) => {
         />  
       </td>
       <td>
-        {warehouses ? <ListWarehouse warehouses={warehouses} /> : null}
+        <ListWarehouse warehouses={warehouses} />
       </td>  
       <td>
         <DeleteButton 

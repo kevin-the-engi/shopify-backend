@@ -10,6 +10,10 @@ router.put('/edit-item', controllers.updateItem);
 
 router.delete('/delete-item', controllers.deleteItem);
 
+router.post('/create-warehouse', controllers.createWarehouse);
+
+router.get('/warehouses', controllers.listWarehouses);
+
 module.exports = {
   router
 }

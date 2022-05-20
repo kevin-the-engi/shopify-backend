@@ -54,9 +54,19 @@ const listItems = (req, res, next, code = 200) => {
   })
 }
 
+const createWarehouse = (req, res) => {
+
+}
+
+const listWarehouses = (req, res) => {
+  const query = `SELECT * FROM warehouses ORDER BY id;`;
+}
+
 module.exports = {
   createItem,
   updateItem,
   deleteItem,
   listItems,
+  createWarehouse,
+  listWarehouses
 }

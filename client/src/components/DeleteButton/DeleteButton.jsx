@@ -16,7 +16,7 @@ const DeleteButton = ({ id, deleteItem }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="danger" onClick={handleShow}>
         X
       </Button>
 
@@ -25,11 +25,11 @@ const DeleteButton = ({ id, deleteItem }) => {
         </Modal.Header>
         <Modal.Body>Delete item?</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleDelete}>
-            Yes
-          </Button>
           <Button variant="secondary" onClick={handleClose}>
             No
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Yes
           </Button>
         </Modal.Footer>
       </Modal>

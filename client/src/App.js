@@ -18,13 +18,22 @@ function App() {
       .then((data) => setData(data))
   }
 
+  const postItem = (item) => {
+    axios.post('/create-item', { name: item })
+      .then((res) => res.data)
+      .then((data) => setData(data))
+  }
+
   return (
     <div className="App">
       <header 
         className="App-header">
       </header>
 
-      <ItemButton type="Create" />
+      <div className="menu">
+        <ItemButton type="Create" postItem={postItem} />
+      </div>
+
       <ListInventory inventory={data} />
     </div>
   );

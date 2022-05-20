@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import Form from '../Form/Form.jsx';
 
-const ItemButton = ({ type }) => {
+const ItemButton = ({ type, postItem }) => {
   const [show, toggleShow] = useState(false);
 
   const handleShow = (e) => {
@@ -24,17 +24,12 @@ const ItemButton = ({ type }) => {
         <Modal.Header closeButton>
           <Modal.Title>{type} item</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <Form />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            {type}
-          </Button>
-        </Modal.Footer>
+
+        <Form 
+          handleClose={handleClose}
+          type={type}
+          postItem={postItem}
+        />
       </Modal>
     </>
   )

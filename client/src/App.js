@@ -10,8 +10,8 @@ function App() {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    getData();
     getWarehouses();
+    getData();
   }, []);
   
   const getData = () => {
@@ -59,6 +59,7 @@ function App() {
 
       <ListInventory 
         inventory={data} 
+        warehouses={warehouses}
         getItem={editItem} 
         deleteItem={deleteItem} 
       />

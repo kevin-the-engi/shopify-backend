@@ -32,7 +32,7 @@ const ItemButton = ({ type, postItem }) => {
         />
       </Modal>
     </>
-  )
+  );
 }
 
 export default ItemButton;

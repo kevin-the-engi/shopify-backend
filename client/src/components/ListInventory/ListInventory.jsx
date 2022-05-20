@@ -1,6 +1,6 @@
 import ListInventoryItems from '../ListInventoryItems/ListInventoryItems.jsx';
 
-const ListInventory = ({ inventory }) => {
+const ListInventory = ({ inventory, ...other }) => {
   return(
     <table className="inventory">
       <tbody>
@@ -9,11 +9,12 @@ const ListInventory = ({ inventory }) => {
             key={id} 
             id={id}
             name={name} 
+            {...other}
           />
         )}
       </tbody>
     </table>
-  )
+  );
 }
 
 export default ListInventory;

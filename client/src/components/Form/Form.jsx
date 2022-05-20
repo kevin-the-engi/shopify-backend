@@ -36,7 +36,7 @@ const FormComponent = ({ handleClose, type, postItem }) => {
         </Button>
       </Modal.Footer>
     </>
-  )
+  );
 }
 
 export default FormComponent;

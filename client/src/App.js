@@ -15,13 +15,25 @@ function App() {
   const getData = () => {
     axios.get('/list')
       .then((res) => res.data)
-      .then((data) => setData(data))
+      .then((data) => setData(data));
   }
 
   const postItem = (item) => {
     axios.post('/create-item', { name: item })
       .then((res) => res.data)
-      .then((data) => setData(data))
+      .then((data) => setData(data));
+  }
+
+  const editItem = (id, item) => {
+
+  }
+
+  const deleteItem = (id) => {
+    axios.delete('/delete-item', { 
+      data: { id } 
+    })
+      .then((res) => res.data)
+      .then((data) => setData(data));  
   }
 
   return (
@@ -34,7 +46,11 @@ function App() {
         <ItemButton type="Create" postItem={postItem} />
       </div>
 
-      <ListInventory inventory={data} />
+      <ListInventory 
+        inventory={data} 
+        editItem={editItem} 
+        deleteItem={deleteItem} 
+      />
     </div>
   );
 }

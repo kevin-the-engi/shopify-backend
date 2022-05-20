@@ -1,15 +1,16 @@
-import ListInventoryItems from '../ListInventoryItems/jsx';
+import ListInventoryItems from '../ListInventoryItems/ListInventoryItems.jsx';
 
-const ListInventory = ( { inventory }) => {
+const ListInventory = ({ inventory }) => {
   return(
-    <>
-      {inventory.map(({ id, ...other }) => 
+    <div className="inventory">
+      {inventory.map(({ id, name }) => 
         <ListInventoryItems 
           key={id} 
-          {...other} 
+          id={id}
+          name={name} 
         />
       )}
-    </>
+    </div>
   )
 }
 

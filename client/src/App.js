@@ -3,9 +3,10 @@ import axios from 'axios';
 import './App.css';
 
 import Buttons from './components/Buttons/Buttons.jsx';
+import ListInventory from './components/ListInventory/ListInventory.jsx';
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     getData();
@@ -14,7 +15,7 @@ function App() {
   const getData = () => {
     axios.get('/list')
       .then((res) => res.data)
-      .then((data) => setData(data.message))
+      .then((data) => setData(data))
   }
 
   return (
@@ -24,7 +25,7 @@ function App() {
       </header>
 
       <Buttons name="Create" />
-      
+      <ListInventory inventory={data} />
     </div>
   );
 }

@@ -20,7 +20,6 @@ const updateItem = (req, res, next) => {
     SET name = '${name}'
     WHERE id = ${id};
   `
-
   db.query(query, (err) => {
     if (err) {
       res.sendStatus(400);
@@ -54,7 +53,6 @@ const listItems = (req, res, next, code = 200) => {
     }
   })
 }
-
 
 module.exports = {
   createItem,

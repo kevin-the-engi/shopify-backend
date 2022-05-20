@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-import Buttons from './components/Buttons/Buttons.jsx';
+import ItemButton from './components/ItemButton/ItemButton.jsx';
 import ListInventory from './components/ListInventory/ListInventory.jsx';
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
         className="App-header">
       </header>
 
-      <Buttons name="Create" />
+      <ItemButton type="Create" />
       <ListInventory inventory={data} />
     </div>
   );

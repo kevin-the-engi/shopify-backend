@@ -13,7 +13,7 @@ A inventory tracking web application for a logistics company.
 
 ## Technologies
 
-React, Node, Express, Axios, Bootstrap, Postgres, Webpack
+React, Node, Express, Axios, Bootstrap, Postgres, Webpack, AWS RDS
 
 ## Available Scripts
 

@@ -21,13 +21,13 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Starts backend for app.\
+Starts backend for app.
 
 ### `npm run build`
 
-Runs npm install for client folder with frontend app.\
+Runs npm install for client folder with frontend app.
 Once complete, starts frontend app.
 
 ### `npm run build-db`
 
-Builds database by loading schema file.\
+Builds database by loading schema file.

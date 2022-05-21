@@ -1,3 +1,4 @@
+import React from 'react';
 import Dropdown from "react-bootstrap/Dropdown";
 
 import SelectWarehouseNames from "../SelectWarehouseNames/SelectWarehouseNames.jsx";

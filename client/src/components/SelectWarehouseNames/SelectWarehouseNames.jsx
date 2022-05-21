@@ -1,3 +1,4 @@
+import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 const SelectWarehouseNames = ({ id, name }) => {

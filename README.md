@@ -11,6 +11,9 @@ A inventory tracking web application for a logistics company.
     * View a list of them
 2. Ability to create warehouses/locations and assign inventory to specific locations
 
+## Technologies
+
+React, Node, Express, Axios, Bootstrap, Postgres, Webpack
 
 ## Available Scripts
 
@@ -18,13 +21,13 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Starts backend for app.\
+Starts backend for app.
 
 ### `npm run build`
 
-Runs npm install for client folder with frontend app.\
+Runs npm install for client folder with frontend app.
 Once complete, starts frontend app.
 
 ### `npm run build-db`
 
-Builds database by loading schema file.\
+Builds database by loading schema file.

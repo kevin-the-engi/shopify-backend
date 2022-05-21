@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { useState } from 'react';
 
 import Form from '../Form/Form.jsx';
 

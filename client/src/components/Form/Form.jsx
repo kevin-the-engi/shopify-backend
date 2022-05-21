@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import { useState } from 'react';
 
 const FormComponent = ({ handleClose, type, getName, id }) => {
   const [item, setItem] = useState('');

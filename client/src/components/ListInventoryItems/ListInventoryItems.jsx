@@ -1,3 +1,5 @@
+import React from 'react';
+
 import DeleteButton from '../DeleteButton/DeleteButton.jsx';
 import CreateButton from '../CreateButton/CreateButton.jsx';
 import SelectWarehouse from '../SelectWarehouse/SelectWarehouse.jsx';

@@ -1,18 +1,19 @@
 import Dropdown from "react-bootstrap/Dropdown";
 
-import ListWarehouseNames from "../ListWarehouseNames/ListWarehouseNames.jsx";
+import SelectWarehouseNames from "../SelectWarehouseNames/SelectWarehouseNames.jsx";
 
-const ListWarehouse = ({ warehouses }) => {
+const SelectWarehouse = ({ warehouses, selectWarehouse }) => {
   return(
     <div className="warehouses">
-      <Dropdown>
+      <Dropdown onSelect={selectWarehouse}>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           Locations
         </Dropdown.Toggle>
         <Dropdown.Menu>
           {warehouses?.map(({ id, ...other }) => 
-            <ListWarehouseNames 
+            <SelectWarehouseNames 
               key={id}
+              id={id}
               {...other}
             />
           )}
@@ -22,4 +23,4 @@ const ListWarehouse = ({ warehouses }) => {
   );
 }
 
-export default ListWarehouse;
+export default SelectWarehouse;

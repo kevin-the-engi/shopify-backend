@@ -1,6 +1,6 @@
 const db = require('../db')
 
-const createItem = (req, res, next) => {
+const createItem = (req, res) => {
   const { name } = req.body;
   const query = `INSERT INTO inventory(name) VALUES('${name}');`;
 
@@ -8,30 +8,30 @@ const createItem = (req, res, next) => {
     if (err) {
       res.sendStatus(409);
     } else {
-      listItems(req, res, next, 201)
+      listItems(req, res, null, 201)
     }
   })
 }
 
-const updateItem = (req, res, next) => {
+const updateItem = (req, res) => {
   const { id, name } = req.body;
   const query = `
     UPDATE inventory
     SET name = '${name}'
     WHERE id = ${id};
-  `
+  `;
   db.query(query, (err) => {
     if (err) {
       res.sendStatus(400);
     } else {
-      listItems(req, res, next, 201);
+      listItems(req, res, null, 201);
     }
   })
 }
 
 const deleteItem = (req, res) => {
   const { id } = req.body;
-  const query = `DELETE FROM inventory WHERE id=${id};`
+  const query = `DELETE FROM inventory WHERE id = ${id};`
 
   db.query(query, (err) => {
     if (err) {
@@ -43,7 +43,16 @@ const deleteItem = (req, res) => {
 }
 
 const listItems = (req, res, next, code = 200) => {
-  const query = `SELECT * FROM inventory ORDER BY id;`;
+  const query = `    
+    SELECT 
+      inventory.id, 
+      inventory.name, 
+      warehouses.name AS warehouse
+    FROM inventory
+    LEFT JOIN warehouses 
+    ON inventory.warehouse_id = warehouses.id 
+    ORDER by inventory.id;
+  `;
 
   db.query(query, (err, { rows }) => {
     if (err) {
@@ -54,7 +63,7 @@ const listItems = (req, res, next, code = 200) => {
   })
 }
 
-const createWarehouse = (req, res, next) => {
+const createWarehouse = (req, res) => {
   const { name } = req.body;
   const query = `INSERT INTO warehouses(name) VALUES('${name}');`
 
@@ -62,7 +71,7 @@ const createWarehouse = (req, res, next) => {
     if (err) {
       res.sendStatus(409);
     } else {
-      listWarehouses(req, res, next, 201); 
+      listWarehouses(req, res, null, 201); 
     }
   })
 }
@@ -79,6 +88,23 @@ const listWarehouses = (req, res, next, code = 200) => {
   })
 }
 
+const setWarehouse = (req, res) => {
+  const { itemID, warehouseID } = req.body;
+  const query = `
+    UPDATE inventory
+    SET warehouse_id = '${warehouseID}'
+    WHERE id = ${itemID};
+  `;
+
+  db.query(query, (err) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      listItems(req, res, null, 201);
+    }
+  })
+}
+
 module.exports = {
   createItem,
   updateItem,
@@ -86,4 +112,5 @@ module.exports = {
   listItems,
   createWarehouse,
   listWarehouses,
+  setWarehouse,
 }

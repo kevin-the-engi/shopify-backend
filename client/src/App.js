@@ -19,7 +19,7 @@ function App() {
       .then((res) => setData(res.data));
   }
 
-  const postItem = (item) => {
+  const createItem = (item) => {
     axios.post('/create-item', { name: item })
       .then((res) => setData(res.data));
   }
@@ -41,9 +41,14 @@ function App() {
       .then((res) => setWarehouses(res.data));
   }
 
-  const postWarehouse = (name) => {
+  const createWarehouse = (name) => {
     axios.post('create-warehouse', { name })
       .then((res) => setWarehouses(res.data));
+  }
+
+  const selectWarehouse = (itemID, warehouseID) => {
+    axios.put('select-warehouse', { itemID, warehouseID })
+      .then((res) => setData(res.data));
   }
 
   return (
@@ -53,13 +58,22 @@ function App() {
       </header>
 
       <div className="menu">
-        <CreateButton type="Create" desc="Create item" getName={postItem} />
-        <CreateButton type="Location" desc="Create location" getName={postWarehouse} />
+        <CreateButton 
+          type="Create" 
+          desc="Create item" 
+          getName={createItem} 
+        />
+        <CreateButton 
+          type="Location" 
+          desc="Create location" 
+          getName={createWarehouse} 
+        />
       </div>
 
       <ListInventory 
         inventory={data} 
         warehouses={warehouses}
+        selectIDs={selectWarehouse}
         getItem={editItem} 
         deleteItem={deleteItem} 
       />

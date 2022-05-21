@@ -20,6 +20,7 @@ const updateItem = (req, res) => {
     SET name = '${name}'
     WHERE id = ${id};
   `;
+  
   db.query(query, (err) => {
     if (err) {
       res.sendStatus(400);

@@ -53,8 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <header 
-        className="App-header">
+      <header className="App-header">
       </header>
 
       <div className="menu">
@@ -74,7 +73,7 @@ function App() {
         inventory={data} 
         warehouses={warehouses}
         selectIDs={selectWarehouse}
-        getItem={editItem} 
+        getName={editItem} 
         deleteItem={deleteItem} 
       />
     </div>

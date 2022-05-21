@@ -27,7 +27,7 @@ Starts server for app.
 
 Runs webpack to create development build.
 
-### `npm build`
+### `npm run uild`
 
 Runs webpack to create production build.
 

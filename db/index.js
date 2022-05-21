@@ -1,5 +1,5 @@
 const { Pool } = require('pg')
-const connectionString = `${process.env.DB_HOST}` || 'postgres://postgres:@localhost:5432/testdb';
+const connectionString = `${process.env.DB_HOST}` || `${process.env.DB_LOCAL}`;
 
 const pool = new Pool({
   connectionString,

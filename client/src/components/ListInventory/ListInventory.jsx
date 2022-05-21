@@ -7,9 +7,9 @@ const ListInventory = ({ inventory, ...other }) => {
     <Table striped bordered hover className="inventory">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Item Name</th>
-          <th>Warehouse</th>
+          <th className="data">ID</th>
+          <th className="data">Item Name</th>
+          <th className="data">Warehouse</th>
           <th>Edit</th>
           <th>Location</th>
           <th>Delete</th>

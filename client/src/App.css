@@ -29,3 +29,7 @@
 #Create, #Location {
   width: 6em;
 }
+
+.data {
+  text-align: left;
+}

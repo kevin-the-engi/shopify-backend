@@ -9,9 +9,9 @@ const ListInventoryItems = ({ id, name, warehouse, getName, deleteItem, warehous
 
   return(
     <tr className="item">
-      <td width="50">{id}</td>
-      <td width="300">{name}</td>
-      <td width="200">{warehouse}</td>
+      <td width="60" className="data">{id}</td>
+      <td width="300" className="data">{name}</td>
+      <td width="200" className="data">{warehouse}</td>
       <td width="60">
         <CreateButton 
           type="Edit" 

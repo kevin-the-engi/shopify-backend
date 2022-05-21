@@ -9,10 +9,10 @@ const ListInventoryItems = ({ id, name, warehouse, getName, deleteItem, warehous
 
   return(
     <tr className="item">
-      <td>{id}</td>
-      <td>{name}</td>
-      <td>{warehouse}</td>
-      <td>
+      <td width="50">{id}</td>
+      <td width="300">{name}</td>
+      <td width="200">{warehouse}</td>
+      <td width="60">
         <CreateButton 
           type="Edit" 
           desc="Edit item"
@@ -20,13 +20,13 @@ const ListInventoryItems = ({ id, name, warehouse, getName, deleteItem, warehous
           getName={getName} 
         />  
       </td>
-      <td>
+      <td width="130">
         <SelectWarehouse 
           warehouses={warehouses} 
           selectWarehouse={selectWarehouse} 
         />
       </td>  
-      <td>
+      <td width="50">
         <DeleteButton 
           id={id} 
           deleteItem={deleteItem} 

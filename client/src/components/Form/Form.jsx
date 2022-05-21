@@ -24,7 +24,7 @@ const FormComponent = ({ handleClose, type, getName, id }) => {
               <Form.Label>{type} name:</Form.Label>
               <Form.Control 
                 type="text" 
-                placeholder={"Enter name of " + (type === "Location" ? "location" : "items") + ":"} 
+                placeholder={"Enter name of " + (type === "Location" ? "location" : "item") + ":"} 
                 value={item} 
                 onChange={handleChange} 
               />

@@ -6,17 +6,17 @@ import Form from '../Form/Form.jsx';
 const CreateButton = ({ type, desc, ...other }) => {
   const [show, toggleShow] = useState(false);
 
-  const handleShow = (e) => {
+  const handleShow = () => {
     toggleShow(true);
   }
 
-  const handleClose = (e) => {
+  const handleClose = () => {
     toggleShow(false);
   }
 
   return(
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button id={type} variant="primary" onClick={handleShow}>
         {type}
       </Button>
 

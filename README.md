@@ -11,6 +11,9 @@ A inventory tracking web application for a logistics company.
     * View a list of them
 2. Ability to create warehouses/locations and assign inventory to specific locations
 
+## Technologies
+
+React, Node, Express, Axios, Bootstrap, Postgres, Webpack
 
 ## Available Scripts
 

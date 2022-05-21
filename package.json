@@ -1,11 +1,11 @@
 {
-  "name": "create-react-app-backend",
+  "name": "shopify-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./server/server.js",
+    "start": "node ./server/server.js",
     "build": "cd client && npm install && npm start",
     "build-db": "psql -U postgres < ./db/schema.sql"
   },

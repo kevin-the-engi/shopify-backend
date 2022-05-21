@@ -21,9 +21,17 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Starts backend for app.
+Starts server for app.
 
-### `npm run build`
+### `npm run dev`
+
+Runs webpack to create development build.
+
+### `npm build`
+
+Runs webpack to create production build.
+
+### `npm run build-client`
 
 Runs npm install for client folder with frontend app.
 Once complete, starts frontend app.

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack -w",
     "start": "nodemon ./server/server.js",
-    "build": "cd client && npm install && npm start",
+    "build": "webpack --mode production",
+    "build-client": "cd client && npm install && npm start",
     "build-db": "psql -U postgres < ./db/schema.sql"
   },
   "repository": {
